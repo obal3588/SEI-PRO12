@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="CSS/style.css">
+
+</head>
+
+<body>
+
+
+    <div class="continer">
+        <header>
+            <h1>Tic Tac Toe</h1>
+        </header>
+        <form id="theForm">
+        <div class="grid">
+            <table>
+                <tr class="row0">
+                    <td class="blocks"  id="ceil0"></td>
+ 
+                    <td class="blocks" id="ceil1"></td>
+
+                    <td class="blocks" id="ceil2"></td>
+                </tr>
+                <tr class="row1">
+                    <td class="blocks" id="ceil0"></td>
+                    <td class="blocks" id="ceil1"></td>
+                    <td class="blocks" id="ceil2"></td>
+                </tr>
+                <tr class="row2 ">
+                    <td class="blocks" id="ceil0"></td>
+                    <td class="blocks" id="ceil1"></td>
+                    <td class="blocks" id="ceil2"></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+        <footer>
+            <div class="massageResult"></div>
+            <button class="button" id="start">Sart</button>
+            <button class="button" id="newGame">NewGame</button>
+            <button class="button" id="reset">Reset</button>
+            
+
+        </footer>
+    </div>
+    <aside>
+            <div class="player1"><p></p></div>
+            <div class="player1">Player"O"<input class = "o" type="text" ></div>
+            <div class="player1">Player"x"<input class="x" type="text" ></div>
+    </aside>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script src="JavaScript/app.js"></script>
+</body>
+
+</html>
