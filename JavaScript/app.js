@@ -179,20 +179,20 @@ the colum and row valued to add it to grid .also call win fanction
             //who wins  
             const temp = "<b>" + "<br>" + "player " + finalResult[1] + " is win!!" + "</b>";
             if ( finalResult[1]==="X"){
-                
-                oScore++;
+                xScore++;
+               
             //    debugger;
              
                
                 }
                 else {
                 //    debugger;
-                xScore++;
-                   
+             
+                oScore++;
                 }
             $(".massageResult").append(temp);
             
-            $('.o').attr("value",OScore);
+            $('.o').attr("value",oScore);
             $('.x').attr("value", xScore);
         }
     }
@@ -204,18 +204,16 @@ the colum and row valued to add it to grid .also call win fanction
         $('aside').append("<b>Start</b>");
         $(".player1 p").text(player);
         $(this).unbind(); 
+
+    $('#reset').click(resetHandler);
+    $("td").click(click_handler);
     }
     
     const resetHandler = function () {
-
-
-        S1= localStorage.S1 ;
-        S2= localStorage.S2;
-        window.location.reload();
-
-
-  
-      
+     debugger;
+      localStorage.oScore=oScore;
+      localStorage.xScore=xScore;
+      window.location.reload();      
     }
     const newGame =function(){
        
@@ -223,9 +221,10 @@ the colum and row valued to add it to grid .also call win fanction
   
         $(".massageResult").empty();
         $(".blocks").empty();
-        $(".row0").css("background-color", "chocolate");
-        $(".row1").css("background-color", "chocolate");
-        $(".row2").css("background-color", "chocolate");
+ 
+        $('tr').css("background-color","");
+        $("td").css("background-color","");
+
         $(".player1 p").detach();
         $("b").detach();
          counter = 0; //counter up to 9 times.used for tie condation 
@@ -236,17 +235,9 @@ the colum and row valued to add it to grid .also call win fanction
 
         //
         $("#start").click(startHandler);
-        $("td").click(click_handler);
     }
 
-           
 
-
-
-
-
-    $('#reset').click(resetHandler);
-    $("td").click(click_handler);
     $("#start").click(startHandler);
     $("#newGame").click(newGame);
     
