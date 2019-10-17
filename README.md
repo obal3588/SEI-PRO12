@@ -34,6 +34,10 @@ In this game, we have a 3*3 grid and 8 passable way to win. I involved functions
 -	using then() method to solve the problem.
 
 
+### Demo
+ https://obal3588.github.io/SEI-PRO11/
+
+
 
 
 
