@@ -16,9 +16,11 @@ $(document).ready(function () {
 
     let oScore=0;
     let xScore=0;
-
-
-
+if (localStorage.oScore===undefined){
+    debugger;
+    localStorage.oScore=0;
+    localStorage.xScore=0
+}
   /**helper funcation  */
   const allEqual = arr => arr.every(v => v === arr[0])
   const extractColumn = function (arr, column) {
@@ -179,7 +181,7 @@ the colum and row valued to add it to grid .also call win fanction
             //who wins  
             const temp = "<b>" + "<br>" + "player " + finalResult[1] + " is win!!" + "</b>";
             if ( finalResult[1]==="X"){
-                xScore++;
+                localStorage.xScore++;
                
             //    debugger;
              
@@ -188,58 +190,54 @@ the colum and row valued to add it to grid .also call win fanction
                 else {
                 //    debugger;
              
-                oScore++;
+                localStorage.oScore++;
                 }
             $(".massageResult").append(temp);
             
-            $('.o').attr("value",oScore);
-            $('.x').attr("value", xScore);
+            $('.o').attr("value",localStorage.oScore);
+            $('.x').attr("value", localStorage.xScore);
         }
     }
 
-    
+// const set_storage= async function(){
+//     localStorage.oScore=oScore;
+//     localStorage.xScore=xScore;
+
+// }
+
     const startHandler = function () {
         debugger
         start = true;
         $('aside').append("<b>Start</b>");
         $(".player1 p").text(player);
         $(this).unbind(); 
+        oScore=   localStorage.oScore;
+        xScore=localStorage.xScore;
 
-    $('#reset').click(resetHandler);
-    $("td").click(click_handler);
     }
     
     const resetHandler = function () {
      debugger;
-      localStorage.oScore=oScore;
-      localStorage.xScore=xScore;
-      window.location.reload();      
+    //  set_storage().then(function() {
+    //      debugger;
+    //     window.location.reload(); 
+    //  })
+     window.location.reload();  
     }
     const newGame =function(){
        
         debugger;
-  
-        $(".massageResult").empty();
-        $(".blocks").empty();
- 
-        $('tr').css("background-color","");
-        $("td").css("background-color","");
+        localStorage.clear();
+        window.location.reload(); 
 
-        $(".player1 p").detach();
-        $("b").detach();
-         counter = 0; //counter up to 9 times.used for tie condation 
-         start = false; // start game condation  
-         player = "Player X" //player x is first one 
-         playerValue = true; //binery condation 
-         grid = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]]
-
-        //
-        $("#start").click(startHandler);
     }
-
+    $('.o').attr("value", localStorage.oScore);
+    $('.x').attr("value",  localStorage.xScore);
 
     $("#start").click(startHandler);
     $("#newGame").click(newGame);
+    $('#reset').click(resetHandler);
+    $("td").click(click_handler);
     
 
 });
